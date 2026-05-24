@@ -1,0 +1,33 @@
+name: Setup Graphviz
+description: Setup a graphviz environment and add it to the PATH.
+author: kamiazya <yuki@kamiazya.tech>
+branding:
+  icon: arrow-down-circle
+  color: gray-dark
+inputs:
+  ubuntu-skip-apt-update:
+    description: |-
+      Skip to run apt update command on Ubuntu.
+    required: false
+    default: 'false'
+  ubuntu-graphviz-version:
+    description: |-
+      graphviz version on Ubuntu.
+    required: false
+  ubuntu-libgraphvizdev-version:
+    description: |-
+      libgraphviz-dev version on Ubuntu.
+    required: false
+  macos-skip-brew-update:
+    description: |-
+      Skip to run brew update command on macOS.
+    required: false
+    default: 'false'
+  windows-graphviz-version:
+    description: |-
+      graphviz version on Windows.
+    required: false
+
+runs:
+  using: node24
+  main: lib/main.js
