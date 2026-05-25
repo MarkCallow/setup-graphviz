@@ -13,9 +13,7 @@ jobs:
           node-version: 24.x
           cache: yarn
       - name: Install Dependencies
-        run: yarn install
-      - name: Print yarn.lock
-        run: grep -A 4 node yarn.lock
+        run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint
       - name: TypeCheck
