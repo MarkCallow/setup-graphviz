@@ -15,7 +15,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Print yarn.lock
-        run: grep node yarn.lock
+        run: grep -A 4 node yarn.lock
       - name: Lint
         run: yarn lint
       - name: TypeCheck
