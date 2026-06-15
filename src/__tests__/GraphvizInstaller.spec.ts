@@ -80,12 +80,19 @@ describe("class GraphvizInstaller", () => {
             [
               "brew",
               [
-                "install",
-                "graphviz",
                 "trust",
                 "aws/tap",
                 "azure/bicep",
                 "hashicorp/tap"
+              ],
+            ]
+          `);
+          expect(execSpy.mock.calls[2]).toMatchInlineSnapshot(`
+            [
+              "brew",
+              [
+                "install",
+                "graphviz",
               ],
             ]
           `);
@@ -105,12 +112,19 @@ describe("class GraphvizInstaller", () => {
             [
               "brew",
               [
-                "install",
-                "graphviz",
                 "trust",
                 "aws/tap",
                 "azure/bicep",
                 "hashicorp/tap"
+              ],
+            ]
+          `);
+          expect(execSpy.mock.calls[1]).toMatchInlineSnapshot(`
+            [
+              "brew",
+              [
+                "install",
+                "graphviz",
               ],
             ]
           `);
