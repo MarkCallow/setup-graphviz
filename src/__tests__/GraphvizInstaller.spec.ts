@@ -83,7 +83,7 @@ describe("class GraphvizInstaller", () => {
                 "trust",
                 "aws/tap",
                 "azure/bicep",
-                "hashicorp/tap"
+                "hashicorp/tap",
               ],
             ]
           `);
@@ -115,7 +115,7 @@ describe("class GraphvizInstaller", () => {
                 "trust",
                 "aws/tap",
                 "azure/bicep",
-                "hashicorp/tap"
+                "hashicorp/tap",
               ],
             ]
           `);
