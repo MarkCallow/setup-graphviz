@@ -8,7 +8,7 @@ export class GraphvizInstaller {
   private async install() {
     switch (process.platform) {
       case "darwin":
-        this.brewTrust();
+        await this.brewTrust();
         await this.brewInstall();
         break;
       case "linux":
@@ -22,7 +22,7 @@ export class GraphvizInstaller {
     }
   }
 
-  private brewTrust() {
+  private async brewTrust() {
     // Workaround brew 6.0 requiring trusted taps until these have been
     // updated to trusted. See https://github.com/actions/runner-images/issues/14232.
     exec("brew", ["trust", "aws/tap", "azure/bicep", "hashicorp/tap"]);
