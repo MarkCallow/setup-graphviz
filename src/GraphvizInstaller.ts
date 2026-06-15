@@ -8,7 +8,6 @@ export class GraphvizInstaller {
   private async install() {
     switch (process.platform) {
       case "darwin":
-        await this.brewTrust();
         await this.brewInstall();
         break;
       case "linux":
@@ -22,17 +21,14 @@ export class GraphvizInstaller {
     }
   }
 
-  private async brewTrust() {
-    // Workaround brew 6.0 requiring trusted taps until these have been
-    // updated to trusted. See https://github.com/actions/runner-images/issues/14232.
-    exec("brew", ["trust", "aws/tap", "azure/bicep", "hashicorp/tap"]);
-  }
-
   private async brewInstall() {
     const skipBrewUpdate = getBooleanInput("macos-skip-brew-update");
     if (skipBrewUpdate === false) {
       await exec("brew", ["update"]);
     }
+    // Workaround brew 6.0 requiring trusted taps until these have been
+    // updated to trusted. See https://github.com/actions/runner-images/issues/14232.
+    await exec("brew", ["trust", "aws/tap", "azure/bicep", "hashicorp/tap"]);
     await exec("brew", ["install", "graphviz"]);
   }
 
