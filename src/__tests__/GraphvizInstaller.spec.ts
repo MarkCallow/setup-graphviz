@@ -67,7 +67,7 @@ describe("class GraphvizInstaller", () => {
 
           await installer.get();
 
-          expect(execSpy).toBeCalledTimes(2);
+          expect(execSpy).toBeCalledTimes(3);
           expect(execSpy.mock.calls[0]).toMatchInlineSnapshot(`
             [
               "brew",
@@ -96,7 +96,7 @@ describe("class GraphvizInstaller", () => {
 
           await installer.get();
 
-          expect(execSpy).toBeCalledTimes(1);
+          expect(execSpy).toBeCalledTimes(2);
           expect(execSpy.mock.calls[0]).toMatchInlineSnapshot(`
             [
               "brew",
